@@ -1,9 +1,9 @@
 import Image from '../models/Image';
 
-export type ViewImage = {
+export interface ViewImage {
   id: number;
   url: string;
-};
+}
 
 export default {
   render(image: Image): ViewImage {

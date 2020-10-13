@@ -2,7 +2,7 @@ import Orphanage from '../models/Orphanage';
 
 import imagesView, { ViewImage } from './images_view';
 
-type ViewOrphanage = {
+interface ViewOrphanage {
   id: number;
   name: string;
   about: string;
@@ -12,7 +12,7 @@ type ViewOrphanage = {
   open_on_weekends: boolean;
   opening_hours: string;
   images: ViewImage[];
-};
+}
 
 export default {
   render(orphanage: Orphanage): ViewOrphanage {
