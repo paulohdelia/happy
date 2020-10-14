@@ -2,24 +2,12 @@ import React from 'react';
 import { FiArrowRight, FiPlus } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-import Leaflet from 'leaflet';
-
-import 'leaflet/dist/leaflet.css';
-
-import mapMarkerImg from '../../images/map-marker.svg';
 
 import './styles.scss';
 
-const markerSize = 45;
-const popUpWidth = 240;
+import mapMarkerImg from '../../images/map-marker.svg';
 
-const mapIcon = Leaflet.icon({
-  iconUrl: mapMarkerImg,
-
-  iconSize: [markerSize, markerSize],
-  iconAnchor: [markerSize / 2, markerSize],
-  popupAnchor: [popUpWidth / 2 + markerSize * 0.9, 11],
-});
+import mapMarker, { popUpWidth } from '../../utils/mapMarker';
 
 const OrphanagesMap: React.FC = () => {
   return (
@@ -50,7 +38,7 @@ const OrphanagesMap: React.FC = () => {
           url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
         />
 
-        <Marker icon={mapIcon} position={[-23.4442507, -46.5354676]}>
+        <Marker icon={mapMarker} position={[-23.4442507, -46.5354676]}>
           <Popup
             closeButton={false}
             minWidth={popUpWidth}
