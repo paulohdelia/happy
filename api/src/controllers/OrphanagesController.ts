@@ -50,7 +50,7 @@ export async function create(req: Request, res: Response): Promise<Response> {
     about,
     instructions,
     opening_hours,
-    open_on_weekends,
+    open_on_weekends: open_on_weekends === 'true',
     images,
   };
 
